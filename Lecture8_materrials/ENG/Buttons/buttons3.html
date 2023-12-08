@@ -7,18 +7,25 @@
 </head>
 <body>
     <!--
-        It is also possible to add several CSS styling details to the button.
+        Let's get rid from the hyperlink opening task for the button and try to do 
+        something else with the button.
+        For that we can use the onclick attribute and link it to the JavaScript function.
+
     -->
-    <a href="https://www.google.com">
-        <button style="background-color: aqua; color: antiquewhite;">Click Me</button>
-    </a>
-    <br>
+        <button onclick="name_of_the_function()" style="background-color:blue; color: antiquewhite; border-radius: 5px;">Click Me</button>
+    <!--Let's create the p tag with text Hello and attribute id which equals to test, see line 20-->
+    <p id="test">Hello</p>
+
     <!--
-        It is also possible to add several CSS styling details to the button.
-        One can also round the edges of the button.
+        Now let's create a simple JavaScript function, which will be executed when we will click the 
+        button created on th eline 16. The JavaScript function will change the name of the button from
+        Hello to GoodBye
     -->
-    <a href="https://www.google.com">
-        <button style="background-color:blue; color: antiquewhite; border-radius: 5px;">Click Me</button>
-    </a>
+    <script>
+        function name_of_the_function() {
+            document.getElementById("test").innerHTML = "GoodBye";
+        }
+    </script>
+
 </body>
 </html>
