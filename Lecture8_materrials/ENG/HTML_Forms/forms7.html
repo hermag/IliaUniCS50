@@ -7,11 +7,13 @@
 </head>
 <body>
       <!--
-        Let's create the text box for the last name.
-        Let's also add some segmentation of the first name and last name elements and separate them by the break line tag.
-        Let's also add the reset and submit buttons to the form.
+        We can send the data entered in the text boxes for instance to the python code.
+        Take into account that type="Submit" does the data sending job, while
+        type="Reset" resets the text entered in the text boxes.
+        In order to send the data to the python script, we need to add the action element in the form tag.
+        It means that, data entered in the forms will be appended/passed to the python script.
     -->
-    <form>
+    <form action="../folder_name_where_the_python_script_is/some_python_script.py" method="get">
         <div>
             <label for="fname">First Name:</label> 
             <input type="text" id="fname" name="fname" placeholder="Write your first name here">
@@ -29,9 +31,6 @@
         <div>
             <input type="Submit">
         </div>
-        <!--Since there is no action attached/linked to this buttons, nothing will happen when you will click the submit button-->
-        <!--however, if you will click the reset button it will reset the text in the text boxes-->
-
     </form>
 </body>
 </html>
