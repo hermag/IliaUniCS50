@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms 101</title>
+</head>
+<body>
+      <!--
+        Let's add even more elements
+    -->
+    <form action="../folder_name_where_the_python_script_is/some_python_script.py" method="get">
+        <div>
+            <label for="fname">First Name:</label> 
+            <input type="text" id="fname" name="fname" placeholder="Write your first name here" required> 
+        </div>
+        <br>
+        <div>
+            <label for="lname">Last Name:</label> 
+            <input type="text" id="lname" name="lname" placeholder="Write your last name here" required>
+        </div>
+        <br>
+        <!--Password field, it will hide the characters you type-->
+        <!--Check it out - try to write something in the password field-->
+        <div>
+            <label for="pass">password</label> 
+            <input type="password" id="pass" name="pass" required> <!--you can add the maxlength parameter to this tag, for example if reuiqred=12 it means that password lenght should be limited to maximum 12 characters-->
+        </div>
+        <br>
+        <!--email field, it will expect text with email address pattern, i.e. @ symbol should be included-->
+        <!--Check it out - try to write something in the email field-->
+        <div>
+            <label for="email">Email:</label> 
+            <input type="email" id="email" name="email" placeholder="john.doe@mail.com" required>
+        </div>
+        <br>
+        <!--Telephone field, it will expect text with telephone number pattern-->
+        <!--Check it out - try to write something in the tel field field-->
+        <div>
+            <label for="tel">Tel #:</label> 
+            <input type="tel" id="tel" name="tel" placeholder="+995 XXX XXX XXX" required>
+        </div>
+        <br>
+        <!--Birth date field, it will allow you to pick up the birth date-->
+        <!--Check it out -->
+        <div>
+            <label for="bdate">Birth Date:</label> 
+            <input type="date" id="bdate" name="bdate" required>
+        </div>
+        <br>
+        <!--Number field, in this one will not be able to enter any text, only numbers will be accepted-->
+        <!--Check it out -->
+        <div>
+            <label for="quant">quantity</label> 
+            <input type="number" id="quant" name="quant" required>
+        </div>
+        <br>
+        <div>
+            <label for="quant">quantity</label> 
+            <input type="number" id="quant" name="quant" required min="1" max="1000" value="1"> <!--one can add certain limits to the numbers which in our case represents the quantity of something, value attribute/element indicates the default value of the field.-->
+        </div>
+        <br>
+        <!--Radio buttons, you will be able to select only one option out of it-->
+        <!--Check it out -->
+        <div>
+            <label for="age_group_child">1-12</label> 
+            <input type="radio">
+
+            <label for="age_group_teenager">13-19</label> 
+            <input type="radio">
+
+            <label for="age_group_adult">20-35</label> 
+            <input type="radio">
+
+            <label for="age_group_middle">35-55</label> 
+            <input type="radio">
+
+            <label for="age_group_senior">55-75</label> 
+            <input type="radio">
+
+            <label for="age_group_old">75-100</label> 
+            <input type="radio">
+        </div>
+        <!--In this setup - from line 65 to line 82 you will be able to select all possible options, since they are not grouped, below we will group them and you will be able to select only one option from the proposed options!-->
+        <br>
+        <div>
+            <label for="age_group_child">1-12</label> 
+            <input type="radio" name="agrgroup">
+
+            <label for="age_group_teenager">13-19</label> 
+            <input type="radio" name="agrgroup">
+
+            <label for="age_group_adult">20-35</label> 
+            <input type="radio" name="agrgroup">
+
+            <label for="age_group_middle">35-55</label> 
+            <input type="radio" name="agrgroup">
+
+            <label for="age_group_senior">55-75</label> 
+            <input type="radio" name="agrgroup">
+
+            <label for="age_group_old">75-100</label> 
+            <input type="radio"  name="agrgroup">
+        </div>
+        <br>
+        <!--
+            In order to click the radio button when you click the text (not only the radio button itself, we can use
+            the for element )-->
+        <div>
+            <label for="age_group_child">1-12</label> 
+            <input type="radio" id="age_group_child" name="agrgroup" value="age_group_child">
+
+            <label for="age_group_teenager">13-19</label> 
+            <input type="radio" id="age_group_teenager" name="agrgroup" value="age_group_teenager">
+
+            <label for="age_group_adult">20-35</label> 
+            <input type="radio" id="age_group_adult" name="agrgroup" value="age_group_adult">
+
+            <label for="age_group_middle">35-55</label> 
+            <input type="radio" id="age_group_middle" name="agrgroup" value="age_group_middle">
+
+            <label for="age_group_senior">55-75</label> 
+            <input type="radio" id="age_group_senior" name="agrgroup" value="age_group_senior">
+
+            <label for="age_group_old">75-100</label> 
+            <input type="radio" id="age_group_old" name="agrgroup" value="age_group_old">
+        </div>
+        <br>
+        <!--Here you can see the drop down menu, using the select tags-->
+        <div>
+            <label for="age_group_child">Age Groups:</label> 
+            <select id="payment" name="payment">
+                <option value="age_group_child">age group child</option>
+                <option value="age_group_teenager">age group teenager</option>
+                <option value="age_group_adult">age group adult</option>
+                <option value="age_group_middle">age group middle</option>
+                <option value="age_group_senior">age group senior</option>
+                <option value="age_group_old">age group old</option>
+            </select>
+        </div>
+        <!--don't forget that, whatever is written in the value will be send to the python script!-->
+        <br>
+        <div>
+            <input type="Reset">
+        </div>
+        <br>
+        <div>
+            <input type="Submit">
+        </div>
+    </form>
+</body>
+</html>
