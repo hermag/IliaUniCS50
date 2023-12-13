@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms 101</title>
+</head>
+<body>
+      <!--
+        Let's create the text box for the last name.
+        Let's also add some segmentation of the first name and last name elements and separate them by the break line tag.
+        Let's also add the reset and submit buttons to the form.
+    -->
+    <form>
+        <div>
+            <label for="fname">First Name:</label> 
+            <input type="text" id="fname" name="fname" placeholder="Write your first name here">
+        </div>
+        <br>
+        <div>
+            <label for="lname">Last Name:</label> 
+            <input type="text" id="lname" name="lname" placeholder="Write your last name here">
+        </div>
+
+        <div>
+            <input type="Reset">
+        </div>
+        <br>
+        <div>
+            <input type="Submit">
+        </div>
+        <!--Since there is no action attached/linked to this buttons, nothing will happen when you will click them-->
+
+    </form>
+</body>
+</html>
