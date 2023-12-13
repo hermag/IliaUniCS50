@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms 101</title>
+</head>
+<body>
+      <!--
+        Let's add more elements and parameters to the tags
+    -->
+    <form action="../folder_name_where_the_python_script_is/some_python_script.py" method="get">
+        <div>
+            <label for="fname">First Name:</label> 
+            <input type="text" id="fname" name="fname" placeholder="Write your first name here" required> <!--make the fname attribute as a required attribute, i.e. user will not be able call the python script, after clicking the submit button without writing the text inside that form!-->
+        </div>
+        <br>
+        <div>
+            <label for="lname">Last Name:</label> 
+            <input type="text" id="lname" name="lname" placeholder="Write your last name here" require> <!--same here-->
+        </div>
+
+        <div>
+            <input type="Reset">
+        </div>
+        <br>
+        <div>
+            <input type="Submit">
+        </div>
+    </form>
+</body>
+</html>
