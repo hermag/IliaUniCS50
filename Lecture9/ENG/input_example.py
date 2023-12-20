@@ -1,0 +1,1 @@
+x, y = input("Enter two values: ").split()
