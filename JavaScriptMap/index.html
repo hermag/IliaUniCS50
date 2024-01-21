@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <title>Interactive Map</title>
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <label for="startCoordinates">Enter Start Coordinates (Lat, Long):</label>
+    <input type="text" id="startCoordinates" placeholder="e.g., 51.505, -0.09">
+    
+    <label for="endCoordinates">Enter End Coordinates (Lat, Long):</label>
+    <input type="text" id="endCoordinates" placeholder="e.g., 52.520, 13.405">
+    
+    <button onclick="showRoute()">Show Route</button>
+
+    <script>
+        var map = L.map('map').setView([0, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        function showRoute() {
+            var startCoordinatesInput = document.getElementById('startCoordinates').value;
+            var endCoordinatesInput = document.getElementById('endCoordinates').value;
+
+            var startCoordinates = startCoordinatesInput.split(',').map(coord => parseFloat(coord.trim()));
+            var endCoordinates = endCoordinatesInput.split(',').map(coord => parseFloat(coord.trim()));
+
+            if (startCoordinates.length === 2 && !isNaN(startCoordinates[0]) && !isNaN(startCoordinates[1]) &&
+                endCoordinates.length === 2 && !isNaN(endCoordinates[0]) && !isNaN(endCoordinates[1])) {
+
+                // Clear previous markers and route
+                map.eachLayer(layer => {
+                    if (layer instanceof L.Marker || layer instanceof L.Polyline) {
+                        map.removeLayer(layer);
+                    }
+                });
+
+                // Add markers for start and end points
+                L.marker(startCoordinates).addTo(map)
+                    .bindPopup('Start Point').openPopup();
+                L.marker(endCoordinates).addTo(map)
+                    .bindPopup('End Point').openPopup();
+
+                // Draw a route between the two points using OpenRouteService API
+                var routeUrl = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=YOUR_OPENROUTESERVICE_API_KEY&start=${startCoordinates[1]},${startCoordinates[0]}&end=${endCoordinates[1]},${endCoordinates[0]}`;
+                
+                fetch(routeUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        var route = data.features[0].geometry.coordinates.map(coord => [coord[1], coord[0]]);
+                        L.polyline(route, { color: 'blue' }).addTo(map);
+                        
+                        // Calculate the distance
+                        var distance = data.features[0].properties.segments.reduce((acc, segment) => acc + segment.distance, 0);
+                        alert('Distance: ' + (distance / 1000).toFixed(2) + ' km');
+
+                        // Calculate the estimated duration
+                        var duration = data.features[0].properties.segments.reduce((acc, segment) => acc + segment.duration, 0);
+                        alert('Estimated Time: ' + formatTime(duration));
+                    })
+                    .catch(error => {
+                        console.error('Error fetching route:', error);
+                    });
+            } else {
+                alert('Invalid coordinates. Please enter valid values.');
+            }
+        }
+
+        function formatTime(seconds) {
+            var hours = Math.floor(seconds / 3600);
+            var minutes = Math.floor((seconds % 3600) / 60);
+            return hours + ' hours ' + minutes + ' minutes';
+        }
+    </script>
+</body>
+</html>

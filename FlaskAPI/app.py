@@ -14,6 +14,16 @@ def index():
 
 	return render_template('home.html') 
 
+@app.route('/table', methods=['GET', 'POST']) 
+def table(): 
+	if request.method == 'POST': 
+		# Retrieve the text from the textarea 
+		text = request.form.get('textarea') 
+
+		# Print the text in terminal for verification 
+		print(text) 
+
+	return render_template('home.html') 
 
 if __name__ == '__main__': 
 	app.run() 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <title>Interactive Map</title>
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <label for="coordinates">Enter Coordinates (Lat, Long):</label>
+    <input type="text" id="coordinates" placeholder="e.g., 51.505, -0.09">
+    <button onclick="showLocation()">Show Location</button>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([0, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        // Function to show location on the map
+        function showLocation() {
+            var coordinatesInput = document.getElementById('coordinates').value;
+            var coordinates = coordinatesInput.split(',').map(coord => parseFloat(coord.trim()));
+
+            // Check if coordinates are valid
+            if (coordinates.length === 2 && !isNaN(coordinates[0]) && !isNaN(coordinates[1])) {
+                // Clear previous markers
+                map.eachLayer(layer => {
+                    if (layer instanceof L.Marker) {
+                        map.removeLayer(layer);
+                    }
+                });
+
+                // Add a marker for the new location
+                L.marker(coordinates).addTo(map)
+                    .bindPopup('Your Location').openPopup();
+
+                // Set the map view to the new location
+                map.setView(coordinates, 13);
+            } else {
+                alert('Invalid coordinates. Please enter valid values.');
+            }
+        }
+    </script>
+</body>
+</html>

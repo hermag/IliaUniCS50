@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediterranean Recipes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .recipe-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .recipe-card {
+            width: 300px;
+            margin: 20px;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #ff6347;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .recipe-card:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://127.0.0.1:5000/" class="btn">home</a>
+    <header>
+        <h1>Mediterranean Recipes</h1>
+    </header>
+
+    <div class="recipe-container">
+        <!-- Dish 1 -->
+        <div class="recipe-card">
+            <img class="recipe-image" src="{{ url_for('static', filename='dish1.jpg') }}" alt="Dish 1">
+            <h2>Grilled Octopus Salad</h2>
+            <p>Greece is situated along a stunning coastline, so naturally, seafood is a staple in the Greek diet. One of the top favorites among the locals is octopus. A leisure trip to Santorini, and you’ll surely find octopus in nearly every restaurant menu.
+
+                At The Black Olive, we serve grilled octopus tossed with fresh red onions and capers. Pair it with a nice glass of wine and you’re in for a relaxing night.</p>
+        </div>
+
+        <!-- Dish 2 -->
+        <div class="recipe-card">
+            <img class="recipe-image" src="{{ url_for('static', filename='dish2.jpg') }}" alt="Dish 2">
+            <h2>Whole Red Snapper</h2>
+            <p>One of the most popular white meat fish in the world, the Red Snapper has a sweet and firm texture that can be cooked in a variety of ways.
+
+                At The Black Olive, we serve only fresh whole Red Snapper from the Gulf of Mexico. No need for fancy marinades or sauces for this silky fish, we cook it in the best and simplest way possible — grilled.</p>
+        </div>
+
+        <!-- Dish 3 -->
+        <div class="recipe-card">
+            <img class="recipe-image" src="{{ url_for('static', filename='dish3.jpeg') }}" alt="Dish 3">
+            <h2>Whole Mediterranean Sea Bass</h2>
+            <p>A fish native to the shores of Greece, the Whole Mediterranean Sea Bass is grilled to achieve that buttery flavor and firm texture.
+
+                Also known as Lavraki, the Mediterranean Sea Bass is low in oil content and loved for its distinct flavor that pairs well with our wine selection.</p>
+        </div>
+
+        <!-- Dish 4 -->
+        <div class="recipe-card">
+            <img class="recipe-image" src="{{ url_for('static', filename='dish4.jpeg') }}" alt="Dish 4">
+            <h2>Fish Soup</h2>
+            <p>Craving for a hearty and flavorful soup? The Black Olive serves its distinct fish soup made from the legendary Rascas and flavored with saffron. We add chunks of Wild Rockfish for that bite that you’ll surely love.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mediterranean Recipes</p>
+    </footer>
+
+</body>
+</html>
