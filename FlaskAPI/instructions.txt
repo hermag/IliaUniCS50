@@ -1,0 +1,7 @@
+You need to run the following commands in the command line
+1. pip install virtenv
+2. python -m venv cs50flask
+3. source cs50flask/bin/activate (in case of Windows Operating System run this:
+        env/Scripts/activate.bat //In CMD or
+        env/Scripts/Activate.ps1 //In Powershel)
+4. 
