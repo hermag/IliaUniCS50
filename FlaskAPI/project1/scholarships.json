@@ -1,0 +1,28 @@
+{
+    "Erekle Magradze":{
+        scholarship1:{
+            scholarship_deadline:"31.01.2025",
+            scholarship_university:"Harvard University",
+            required_documents:['ID','recommendationletter','transcript']
+        },
+        scholarship2:{
+            scholarship_deadline:"31.01.2025",
+            scholarship_university:"Harvard University",
+            required_documents:['ID','recommendationletter','transcript']
+        },
+        scholarship3:{
+            scholarship_deadline:"31.01.2025",
+            scholarship_university:"Harvard University",
+            required_documents:['ID','recommendationletter','transcript']
+        }
+
+    }
+   "Tornike SHavishvili":{
+        scholarship1:{
+            scholarship_deadline:"31.01.2025",
+            scholarship_university:"Harvard University",
+            required_documents:['ID','recommendationletter','transcript']
+        }
+    }
+
+}
