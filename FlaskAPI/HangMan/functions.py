@@ -7,9 +7,8 @@ def get_random_word():
     num_words_processed = 0
     curr_word = None
     with open(WORDFILE, 'r') as f:
-        for word in f:
-            word = word.strip().lower()
-            num_words_processed += 1
-            if random.randint(1, num_words_processed) == 1:
-                curr_word = word
+        words = f.readlines()
+        random_index = random.randint(0,len(words)-1)
+        curr_word = words[random_index].strip().lower()
+    f.close()
     return curr_word
